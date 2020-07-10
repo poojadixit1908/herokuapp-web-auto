@@ -1,0 +1,3 @@
+com/herokuapp/guice/GuiceInjectorSource.class
+com/herokuapp/guice/ProjectModule.class
+com/herokuapp/guice/provider/WebDriverProvider.class
