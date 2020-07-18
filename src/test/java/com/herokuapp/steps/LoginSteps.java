@@ -42,4 +42,8 @@ public class LoginSteps {
     public void after() {
         webDriver.quit();
     }
+
+    @And("^user clicks on the checkboxes link provided$")
+    public void userClicksOnTheCheckboxesLinkProvided() {
+    }
 }

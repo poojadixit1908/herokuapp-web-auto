@@ -2,6 +2,7 @@ package com.herokuapp.steps;
 
 import javax.inject.Inject;
 
+import cucumber.api.java.en.And;
 import org.openqa.selenium.WebDriver;
 
 import cucumber.api.java.en.Then;
@@ -22,4 +23,5 @@ public class ExampleSteps {
     @Then("^I google should show me results!$")
     public void i_google_should_show_me_results() {
     }
+
 }
