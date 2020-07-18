@@ -1,7 +1,0 @@
-com/herokuapp/hooks/Hooks.class
-com/herokuapp/pageobjects/HomePage.class
-LoginIT.class
-com/herokuapp/steps/ExampleSteps.class
-com/herokuapp/acceptancetests/AllTests.class
-com/herokuapp/steps/LoginSteps.class
-ExampleIT.class
