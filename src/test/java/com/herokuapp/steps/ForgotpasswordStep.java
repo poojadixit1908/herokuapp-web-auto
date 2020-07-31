@@ -24,9 +24,7 @@ public class ForgotpasswordStep {
 
     @Given("^User visits the site home page \"([^\"]*)\"$")
     public void userVisitTheSiteHomePage(String url) {
-
-
-    forgotpasswordPage = new ForgotpasswordPage(webDriver);
+        forgotpasswordPage = new ForgotpasswordPage(webDriver);
         homePage.goToHomePage(url);
     }
 
@@ -37,16 +35,15 @@ public class ForgotpasswordStep {
     }
 
     @And("^User enters the emailid and clicks the retrieve password$")
-    public void userEntersTheEmailidAndClicksTheRetrievePassword() {
+    public void userEntersTheEmailidAndClicksTheRetrievePassword(String emailId) {
         forgotpasswordPage.retrieveEmailViaForgotPassword();
     }
 
     @Then("^UserOne should be navigated on email sent link: \"([^\"]*)\"$")
-    public void useroneShouldBeNavigatedOnEmailSentLink(String link)  {
+    public void useroneShouldBeNavigatedOnEmailSentLink(String link) {
         String currentPageUrl = pageUtil.getCurrentPageUrl();
         Assert.assertEquals("current url should be : http://the-internet.herokuapp.com/email_sent", link, currentPageUrl);
     }
-
 
 
 }

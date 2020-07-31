@@ -24,7 +24,7 @@ public class CheckboxesStep {
 
     @Given("^User is on site home page \"([^\"]*)\"$")
     public void userIsOnSiteHomePage(String url) {
-        homePage = new HomePage(webDriver);
+        checkboxesPage = new CheckboxesPage(webDriver);
         pageUtil = new PageUtil(webDriver);
         homePage.goToHomePage(url);
         //verify that the current is home page
@@ -41,7 +41,6 @@ public class CheckboxesStep {
 
     @And("^User select first checkbox$")
     public void userSelectFirstCheckbox() {
-        checkboxesPage = new CheckboxesPage(webDriver);
         WebElement selectedCheckbox = checkboxesPage.clickFirstCheckbox();
         //verify that the first checkbox has been selected
         Assert.assertTrue("checkbox 1 should be selected", selectedCheckbox.isSelected());

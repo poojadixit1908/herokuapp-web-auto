@@ -6,12 +6,12 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-public class CheckboxesPage {
+public class CheckboxesPage extends BasePage {
 
-    protected WebDriver driver;
+
 
     public CheckboxesPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
     public WebElement clickFirstCheckbox() {

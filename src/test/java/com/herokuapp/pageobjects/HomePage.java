@@ -6,17 +6,12 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-public class HomePage {
-
-    protected WebDriver driver;
+public class HomePage extends BasePage {
 
     public HomePage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
-    public void goToHomePage(String homePageUrl) {
-        driver.get(homePageUrl);
-    }
 
     public void goToAbTestingModule() {
         WebElement abElement = driver.findElement(By.xpath("//*[@id=\"content\"]/ul/li[1]/a"));
@@ -30,24 +25,38 @@ public class HomePage {
 
     }
 
+    public void clickOnFormAuthenticationLink() {
+        clickOnSubModule("Form Authentication");
+    }
+
     public void clickDropdownLink() {
         clickOnSubModule("Dropdown");
     }
- public void clickHoversLink(){
+
+    public void clickHoversLink() {
         clickOnSubModule("Hovers");
- }
- public void clickForgotPasswordLink(){
+    }
+
+    public void clickForgotPasswordLink() {
         clickOnSubModule("Forgot Password");
- }
-public void clickDragDropLink(){
+    }
+
+    public void clickDragDropLink() {
         clickOnSubModule("Drag and Drop");
-}
-    public void clickMultipleWindowsLink(){
+    }
+
+    public void clickMultipleWindowsLink() {
         clickOnSubModule("Multiple Windows");
     }
-    public void clickNotificationMessage(){
+
+    public void clickNotificationMessage() {
         clickOnSubModule("Notification Messages");
     }
+
+    public void clickHorizontalSlider(){
+        clickOnSubModule("Horizontal Slider");
+    }
+
 
     private void clickOnSubModule(String moduleName) {
         WebElement contentDivElement = driver.findElement(By.id("content"));
@@ -61,8 +70,6 @@ public void clickDragDropLink(){
             }
         }
     }
-
-
 
 
 }
