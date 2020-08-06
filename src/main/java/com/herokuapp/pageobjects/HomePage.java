@@ -1,5 +1,6 @@
 package com.herokuapp.pageobjects;
 
+import com.herokuapp.vo.WeatherResponseData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -53,10 +54,9 @@ public class HomePage extends BasePage {
         clickOnSubModule("Notification Messages");
     }
 
-    public void clickHorizontalSlider(){
-        clickOnSubModule("Horizontal Slider");
-    }
+    public void clickHorizontalSlider(){ clickOnSubModule("Horizontal Slider"); }
 
+    public void clickContextMenu () { clickOnSubModule( "Context Menu");}
 
     private void clickOnSubModule(String moduleName) {
         WebElement contentDivElement = driver.findElement(By.id("content"));
@@ -69,6 +69,15 @@ public class HomePage extends BasePage {
                 break;
             }
         }
+    }
+
+    public WeatherResponseData getWeatherByCountryAndCity() {
+
+        //assume we got the weather displayed on our home page in below variables
+        String condition = "Clear sky"; //this will be from the page via locationg the div
+        double temperature = 14.4;
+        WeatherResponseData weatherResponseData = new WeatherResponseData(condition, temperature);
+        return weatherResponseData;
     }
 
 

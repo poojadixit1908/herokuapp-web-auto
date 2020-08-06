@@ -1,8 +1,11 @@
 package com.herokuapp.steps;
 
+import com.herokuapp.factory.WebDriverProviderFactory;
 import com.herokuapp.pageobjects.HomePage;
 import com.herokuapp.pageobjects.HorizontalsliderPage;
 import cucumber.api.PendingException;
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -13,11 +16,20 @@ import javax.inject.Inject;
 
 public class HorizontalSliderStep {
 
-    @Inject
-    private WebDriver webDriver;
+    private static WebDriver webDriver;
 
     private static HorizontalsliderPage horizontalsliderPage;
     private static HomePage homePage;
+
+    @Before
+    public void before() {
+        webDriver = WebDriverProviderFactory.getBrowser();
+    }
+    @After
+    public void after() {
+        webDriver.close();
+        webDriver.quit();
+    }
 
     @Given("^User visits the home page \"([^\"]*)\"$")
     public void userVisitsTheHomePage(String url) {

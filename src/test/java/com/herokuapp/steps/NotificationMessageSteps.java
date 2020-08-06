@@ -1,10 +1,13 @@
 package com.herokuapp.steps;
 
+import com.herokuapp.factory.WebDriverProviderFactory;
 import com.herokuapp.pageobjects.HomePage;
 import com.herokuapp.pageobjects.MuliplewindowsPage;
 import com.herokuapp.pageobjects.NotificationMessagePage;
 import com.herokuapp.utils.PageUtil;
 import cucumber.api.PendingException;
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -14,11 +17,21 @@ import org.openqa.selenium.WebDriver;
 import javax.inject.Inject;
 
 public class NotificationMessageSteps {
-    @Inject
-    private WebDriver webDriver;
+
+    private static WebDriver webDriver;
     private static HomePage homePage;
     private static NotificationMessagePage notificationMessagePage;
     private static PageUtil pageUtil;
+
+    @Before
+    public void before() {
+        webDriver = WebDriverProviderFactory.getBrowser();
+    }
+    @After
+    public void after() {
+        webDriver.close();
+        webDriver.quit();
+    }
 
 
     @Given("^User is on the home page \"([^\"]*)\"$")

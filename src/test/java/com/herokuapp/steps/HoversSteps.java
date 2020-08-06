@@ -1,10 +1,13 @@
 package com.herokuapp.steps;
 
+import com.herokuapp.factory.WebDriverProviderFactory;
 import com.herokuapp.pageobjects.DropdownPage;
 import com.herokuapp.pageobjects.HomePage;
 import com.herokuapp.pageobjects.HoversPage;
 import com.herokuapp.utils.PageUtil;
 import cucumber.api.PendingException;
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -17,11 +20,21 @@ import javax.inject.Inject;
 public class HoversSteps {
 
 
-        @Inject
-        private WebDriver webDriver;
-        private static HomePage homePage;
-        private static HoversPage hoverPage;
-        private static PageUtil pageUtil;
+    private static WebDriver webDriver;
+    private static HomePage homePage;
+    private static HoversPage hoverPage;
+    private static PageUtil pageUtil;
+
+    @Before
+    public void before() {
+        webDriver = WebDriverProviderFactory.getBrowser();
+    }
+
+    @After
+    public void after() {
+        webDriver.close();
+        webDriver.quit();
+    }
 
     @Given("^User visit the site home page \"([^\"]*)\"$")
     public void userVisitTheSiteHomePage(String url) throws Throwable {

@@ -1,4 +1,4 @@
-package com.herokuapp.guice.provider;
+package com.herokuapp.factory;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -14,12 +14,14 @@ import org.openqa.selenium.safari.SafariDriver;
 import javax.inject.Provider;
 import java.util.Optional;
 
-public class WebDriverProvider implements Provider<WebDriver> {
+public class WebDriverProviderFactory {
 
-    @Override
-    public WebDriver get() {
+    public static WebDriver getBrowser() {
+
         WebDriver driver;
-        String browser = Optional.ofNullable(System.getProperty("browser")).orElse("");
+        String browser;
+        browser = Optional.ofNullable(System.getProperty("browser")).orElse("");
+
         switch (browser.toLowerCase()) {
             case "ie":
             case "internet explorer":

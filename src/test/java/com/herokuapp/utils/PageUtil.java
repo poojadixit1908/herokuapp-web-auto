@@ -1,9 +1,6 @@
 package com.herokuapp.utils;
 
-import com.herokuapp.hooks.Hooks;
 import org.openqa.selenium.WebDriver;
-
-import javax.inject.Inject;
 
 public class PageUtil {
 

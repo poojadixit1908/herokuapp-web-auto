@@ -8,8 +8,6 @@ import java.util.List;
 
 public class CheckboxesPage extends BasePage {
 
-
-
     public CheckboxesPage(WebDriver driver) {
         super(driver);
     }

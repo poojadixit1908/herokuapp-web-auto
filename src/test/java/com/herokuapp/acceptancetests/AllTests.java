@@ -9,8 +9,8 @@ import cucumber.api.junit.Cucumber;
 @CucumberOptions(
         glue = {"com.herokuapp"},
         features = ".",
-        format = {"pretty", "json:target/cucumber-reports/cucumber.json"},
-        tags = {"@complete"}
+        format = {"pretty", "html:target/cucumber-reports"},
+        tags = {"@sanity"}
 )
 public class AllTests {
 }

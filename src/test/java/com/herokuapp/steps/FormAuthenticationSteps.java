@@ -1,8 +1,11 @@
 package com.herokuapp.steps;
 
+import com.herokuapp.factory.WebDriverProviderFactory;
 import com.herokuapp.pageobjects.HomePage;
 import com.herokuapp.pageobjects.LoginPage;
 import cucumber.api.PendingException;
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -16,11 +19,20 @@ import javax.inject.Inject;
 
 public class FormAuthenticationSteps {
 
-    @Inject
-    private WebDriver webDriver;
+    private static WebDriver webDriver;
 
     private static HomePage homePage;
     private static LoginPage loginPage;
+
+    @Before
+    public void before() {
+        webDriver = WebDriverProviderFactory.getBrowser();
+    }
+    @After
+    public void after() {
+        webDriver.close();
+        webDriver.quit();
+    }
 
     @Given("^User is currently on the home page \"([^\"]*)\"$")
     public void userIsCurrentlyOnTheHomePage(String url) {

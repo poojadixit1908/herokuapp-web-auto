@@ -8,12 +8,10 @@ import org.openqa.selenium.interactions.Actions;
 import javax.inject.Inject;
 import java.util.List;
 
-public class HoversPage {
-    protected WebDriver driver;
-
+public class HoversPage extends BasePage{
 
     public HoversPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
     public String hoverOnFirstUser() {

@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 public class HorizontalsliderPage extends BasePage {
+
     public HorizontalsliderPage(WebDriver driver) {
         super(driver);
     }

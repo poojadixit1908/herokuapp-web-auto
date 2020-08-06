@@ -1,10 +1,13 @@
 package com.herokuapp.steps;
 
+import com.herokuapp.factory.WebDriverProviderFactory;
 import com.herokuapp.pageobjects.CheckboxesPage;
 import com.herokuapp.pageobjects.HomePage;
 import com.herokuapp.pageobjects.MuliplewindowsPage;
 import com.herokuapp.utils.PageUtil;
 import cucumber.api.PendingException;
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -17,11 +20,21 @@ import java.util.List;
 import java.util.Set;
 
 public class MultipleWindowsStep {
-    @Inject
-    private WebDriver webDriver;
+
+    private static WebDriver webDriver;
     private static HomePage homePage;
     private static MuliplewindowsPage muliplewindowsPage;
     private static PageUtil pageUtil;
+
+    @Before
+    public void before() {
+        webDriver = WebDriverProviderFactory.getBrowser();
+    }
+    @After
+    public void after() {
+        webDriver.close();
+        webDriver.quit();
+    }
 
 
 

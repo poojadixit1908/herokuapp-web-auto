@@ -2,6 +2,9 @@ package com.herokuapp.steps;
 
 import javax.inject.Inject;
 
+import com.herokuapp.factory.WebDriverProviderFactory;
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import org.openqa.selenium.WebDriver;
 
@@ -12,8 +15,17 @@ import static org.junit.Assert.assertEquals;
 
 public class ExampleSteps {
 
-    @Inject
-    private WebDriver webDriver;
+    private static WebDriver webDriver;
+
+    @Before
+    public void before() {
+        webDriver = WebDriverProviderFactory.getBrowser();
+    }
+    @After
+    public void after() {
+        webDriver.close();
+        webDriver.quit();
+    }
 
     @Given("^I search for \"([^\"]*)\"$")
     public void i_search_for(String arg1) {
