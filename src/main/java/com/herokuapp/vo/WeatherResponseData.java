@@ -3,9 +3,9 @@ package com.herokuapp.vo;
 public class WeatherResponseData {
 
     private String conditionDesc;
-    private double temp;
+    private String temp;
 
-    public WeatherResponseData(String conditionDesc, double temp) {
+    public WeatherResponseData(String conditionDesc, String temp) {
         this.conditionDesc = conditionDesc;
         this.temp = temp;
     }
@@ -14,7 +14,7 @@ public class WeatherResponseData {
         return conditionDesc;
     }
 
-    public double getTemp() {
+    public String  getTemp() {
         return temp;
     }
 }

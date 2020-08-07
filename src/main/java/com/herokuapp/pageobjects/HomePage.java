@@ -54,9 +54,13 @@ public class HomePage extends BasePage {
         clickOnSubModule("Notification Messages");
     }
 
-    public void clickHorizontalSlider(){ clickOnSubModule("Horizontal Slider"); }
+    public void clickHorizontalSlider() {
+        clickOnSubModule("Horizontal Slider");
+    }
 
-    public void clickContextMenu () { clickOnSubModule( "Context Menu");}
+    public void clickContextMenu() {
+        clickOnSubModule("Context Menu");
+    }
 
     private void clickOnSubModule(String moduleName) {
         WebElement contentDivElement = driver.findElement(By.id("content"));
@@ -75,12 +79,19 @@ public class HomePage extends BasePage {
 
         //assume we got the weather displayed on our home page in below variables
         String condition = "Clear sky"; //this will be from the page via locationg the div
-        double temperature = 14.4;
+        String temperature = "40";
         WeatherResponseData weatherResponseData = new WeatherResponseData(condition, temperature);
         return weatherResponseData;
     }
 
+    public WeatherResponseData getWeatherByLongAndLat() {
+        String condition = "Clear sky";
+        String temperature = "40";
+        WeatherResponseData weatherResponseData = new WeatherResponseData(condition, temperature);
+        return weatherResponseData;
+    }
 
 }
+
 
 
